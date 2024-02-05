@@ -1,33 +1,34 @@
 # credit-risk-classification
-Module 20 HW
+Module 20 Machine Learning HW
 
 Report:
 ## Overview of the Analysis
 
-In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
+This machine learning analysis will use and compare two techniques to train and evaluate a model based on a borrowers loan risk:
 
-* Explain the purpose of the analysis.
-* Explain what financial information the data was on, and what you needed to predict.
-* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
-* Describe the stages of the machine learning process you went through as part of this analysis.
-* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any resampling method).
+* We will predict whether or not a borrow is a safe bet to offer a healthy loan, based on previous data including: income, number of accounts, total debt, interest rate and the size of the loan.
+
+* 75035 healthy loans and 2500 risk loans were collected for comparison. 
+
+*  Data was split into Training and Testing sets and then fit to a logistic regression model. After saving the predictions for the testing data, the models performance is evaluated by generating a confusion matrix and offering a clasification report.
+
+* The same procedure was followed, but using the balanced accuracy score imported from the RandomOverSampler module from imbalanced-learn.
 
 ## Results
 
-Using bulleted lists, describe the balanced accuracy scores and the precision and recall scores of all machine learning models.
+Machine Learning Model 1:
+  * Accuracy = 99.2%
+  * Precision = 100% Predicted healthy loans were healthy, whilst 85% of at-risk loans actually defaulted.
+  * Recall = 99% for healthy loans, and 91% for at-risk loans
 
-* Machine Learning Model 1:
-  * Description of Model 1 Accuracy, Precision, and Recall scores.
-
-
-
-* Machine Learning Model 2:
-  * Description of Model 2 Accuracy, Precision, and Recall scores.
+Machine Learning Model 2:
+  * Accuracy = 99.4%
+  * Precision = 100% Predicted healthy loans were healthy, whilst 84% of at-risk loans actually defaulted.
+  * Recall = 99% for healthy loans, and ALSO 99% for at-risk loans (lower "false negative" rate suggests more "risky" borrowers may be given a chance.)
 
 ## Summary
 
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
-* Which one seems to perform best? How do you know it performs best?
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
+Both models predict loan-risk adequately.
 
-If you do not recommend any of the models, please justify your reasoning.
+* The logistic regression model, based on the balanced data, predicts the feasibility of loans slightly better than the original. In addition to being 99.4% accurate, it is also satifactorily precise in identifying both high-risk and healthy loans. However, it does predict healthy scores most precisely. The improved recall number suggests that there is less error in identifying additional healthy loans that may have been overlooked in the previous model. 
+
